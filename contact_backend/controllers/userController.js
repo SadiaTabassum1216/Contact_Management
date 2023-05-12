@@ -59,7 +59,7 @@ const login = asyncHandler( async (req, res) => {
         },
         process.env.JWT_SECTET_KEY,
         {
-            expiresIn:"1m"
+            expiresIn:"10m"
         }
         )
         res.status(200).json({accessToken})
@@ -79,7 +79,7 @@ const login = asyncHandler( async (req, res) => {
 //@route GET /api/users/login
 //@access public
 const current = asyncHandler( async (req, res) => {
-    res.json({message:"Current user information"})
+    res.json(req.user)
 });
 
 
